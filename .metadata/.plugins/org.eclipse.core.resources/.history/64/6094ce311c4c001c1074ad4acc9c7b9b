@@ -1,0 +1,16 @@
+package com.vehicle.violation.traffic.governance.service.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class VehicleViolation {
+
+	@Id
+	public String vehicleNumber;
+    public String violationData;
+    public String violationDate;
+    public String penalty;
+    public String location;
+	
+}

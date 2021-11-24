@@ -1,0 +1,47 @@
+package com.vehicle.violation.data.receiver.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.vehicle.violation.data.receiver.DataReceiverApplication;
+import com.vehicle.violation.data.receiver.model.VehicleViolation;
+
+@Service
+public class VehicleFilterService {
+
+	private static final Logger log = org.slf4j.LoggerFactory.getLogger(DataReceiverApplication.class);
+
+	public void getVehiclesFromGovernanceAndSendLocationAndVehicleDataToCommunicationServer(String vehicleId,
+			String camaraLocation) {
+		List<VehicleViolation> listOfPendingViolationsOnAVehicle = getListOfPendingViolatedVehiclesFromGovernment(
+				vehicleId);
+
+	}
+
+	public List<VehicleViolation> getListOfPendingViolatedVehiclesFromGovernment(String vehicleId) {
+
+		RestTemplate restTemplate = new RestTemplate();
+		String BASE_URL = "http://localhost:9000/vehicle/violations?vehicleNumber=KA51AB1234";
+
+		ResponseEntity<List<VehicleViolation>> responseEntity = restTemplate.exchange(BASE_URL, HttpMethod.GET, null,
+				new ParameterizedTypeReference<List<VehicleViolation>>() {
+				});
+
+		return responseEntity.getBody();
+
+	}
+
+	private void sendTheDataToComminicationServer(List<VehicleViolation> users, String camaraLocation) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,46 @@
+package com.vehicle.violation.communication.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.vehicle.violation.communication.service.model.Beat;
+import com.vehicle.violation.communication.service.model.VehicleViolationMessage;
+import com.vehicle.violation.communication.service.proxy.BeatService;
+
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+@SpringBootApplication
+@EnableEurekaClient
+@RestController
+@RequestMapping("/alert")
+public class CommunicationServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CommunicationServiceApplication.class, args);
+	}
+	
+	@Autowired
+	private BeatService beatService;
+
+	@PostMapping
+	public void alertTheBeatAtLocationAboutVehiclePendingViolation(
+			@RequestBody VehicleViolationMessage vehicleViolationMessage) {
+
+	}
+	
+	
+	private List<Beat> getDetailsOfTheBeatAtTheLocation(String location){
+		
+		
+		List<Beat> beats=beatService.getBeatPersonallsAtLocation(location);
+		return null;
+		
+	}
+}

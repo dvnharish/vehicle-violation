@@ -1,0 +1,18 @@
+package com.vehicle.violation.traffic.governance.service;
+
+import org.slf4j.Logger;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+//@EnableEurekaClient
+public class TrafficGovernanceApplication {
+
+	private static final Logger log = org.slf4j.LoggerFactory.getLogger(TrafficGovernanceApplication.class);
+
+	public static void main(String[] args) {
+		SpringApplication.run(TrafficGovernanceApplication.class, args);
+	}
+
+
+}

@@ -1,0 +1,9 @@
+package com.vehicle.violation.data.receiver.model;
+
+public class VehicleViolationMessage {
+	
+	private VehicleViolation vehicleViolation;
+	private Double totalPenalty;
+	private String location;
+
+}

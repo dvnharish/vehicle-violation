@@ -1,0 +1,20 @@
+package com.vehicle.violation.traffic.governance.service.rest;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.vehicle.violation.traffic.governance.service.model.OnDutyPersonnel;
+
+@RestController
+@RequestMapping("/onduty")
+public class OnDutyPersonnelRest {
+
+	
+	
+	public List<OnDutyPersonnel> getOnDutyPersonalAtLocation(String location){
+		
+		
+	}
+}

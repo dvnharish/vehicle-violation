@@ -1,0 +1,5 @@
+package com.vehicle.violation.traffic.governance.service.rest;
+
+public class OnDutyPersonnelRest {
+
+}

@@ -1,0 +1,8 @@
+create table On_Duty_Personnel
+(
+   id integer not null,
+   name varchar(255) not null,
+   deviceType varchar(255) not null,
+   location varchar(255) not null,
+   primary key(id)
+);

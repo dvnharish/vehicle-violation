@@ -1,0 +1,38 @@
+package com.vehicle.violation.data.receiver.service;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.ctc.wstx.shaded.msv_core.verifier.ValidityViolation;
+@Service
+public class VehicleFilterService {
+	
+	
+	
+	public String getVehicleExists(String vehicleId) {
+		RestTemplate restTemplate = new RestTemplate();
+		String BASE_URL= "http://localhost:9000/vehicle/violations?vehicleNumber=KA51AB1234";
+		
+		ResponseEntity<Object[]> responseEntity =restTemplate.getForEntity(BASE_URL, Object[].class);
+		
+		
+		Object[] objects = responseEntity.getBody();
+
+		
+		
+		
+		return Arrays.stream(objects)
+				  .map(object -> mapper.convertValue(object, User.class))
+				  .collect(Collectors.toList());
+	}
+	
+	
+	
+	
+
+}

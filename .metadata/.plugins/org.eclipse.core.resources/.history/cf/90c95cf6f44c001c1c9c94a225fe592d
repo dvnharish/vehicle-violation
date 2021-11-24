@@ -1,0 +1,23 @@
+package com.vehicle.violation.data.receiver.service;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+
+public class VehicleFilterService {
+	
+	
+	
+	public String getVehicleExists(String vehicleId) {
+		RestTemplate restTemplate = new RestTemplate();
+		String fooResourceUrl= "http://localhost:9000/spring-rest/foos";
+		ResponseEntity<String> response= restTemplate.getForEntity(fooResourceUrl + "/1", String.class);
+		
+		
+		return "";
+	}
+	
+	
+	
+	
+
+}

@@ -1,0 +1,79 @@
+package com.vehicle.violation.communication.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.vehicle.violation.communication.service.model.Beat;
+import com.vehicle.violation.communication.service.model.DeviceType;
+import com.vehicle.violation.communication.service.model.VehicleViolationMessage;
+import com.vehicle.violation.communication.service.proxy.BeatService;
+
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+@SpringBootApplication
+@EnableEurekaClient
+@RestController
+@RequestMapping("/alert")
+public class CommunicationServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CommunicationServiceApplication.class, args);
+	}
+
+	@Autowired
+	private BeatService beatService;
+
+	@PostMapping
+	public void alertTheBeatAtLocationAboutVehiclePendingViolation(
+			@RequestBody VehicleViolationMessage vehicleViolationMessage) {
+
+		List<Beat> listOfBeats = getDetailsOfTheBeatAtTheLocation(vehicleViolationMessage.getLocation());
+		sendInformationToChannel(listOfBeats, vehicleViolationMessage);
+
+	}
+
+	private void sendInformationToChannel(List<Beat> listOfBeats, VehicleViolationMessage vehicleViolationMessage) {
+
+		listOfBeats.forEach(beat -> {
+			if (beat.getDeviceType().equals(DeviceType.MOBILE.label)) {
+				sendDataToMobileChannel(beat.getDeviceNumber(), vehicleViolationMessage);
+			}
+			if (beat.getDeviceType().equals(DeviceType.TRANSCEIVER.label)) {
+				sendDataToTransChannel(beat.getDeviceNumber(), vehicleViolationMessage);
+			}
+			if (beat.getDeviceType().equals(DeviceType.MIC.label)) {
+				sendDataToMicChannel(beat.getDeviceNumber(), vehicleViolationMessage);
+			}
+		});
+
+	}
+
+	private void sendDataToMicChannel(String deviceNumber, VehicleViolationMessage vehicleViolationMessage) {
+		System.out.println("Vehicle Violater Spotted at " + vehicleViolationMessage.getLocation() + "Vehicle Number "
+				+ vehicleViolationMessage.getVehicleViolations().get(0).getVehicleNumber());
+
+	}
+
+	private void sendDataToTransChannel(String deviceNumber, VehicleViolationMessage vehicleViolationMessage) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private void sendDataToMobileChannel(String deviceNumber, VehicleViolationMessage vehicleViolationMessage) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private List<Beat> getDetailsOfTheBeatAtTheLocation(String location) {
+		List<Beat> beats = beatService.getBeatPersonallsAtLocation(location);
+		return beats;
+
+	}
+}

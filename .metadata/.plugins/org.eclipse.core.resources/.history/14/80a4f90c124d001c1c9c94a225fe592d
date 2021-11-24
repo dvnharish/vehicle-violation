@@ -1,0 +1,16 @@
+package com.vehicle.violation.data.receiver.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class VehicleViolationMessage {
+	
+	private VehicleViolation vehicleViolation;
+	private Double totalPenalty;
+	private String location;
+
+}

@@ -1,0 +1,17 @@
+package com.vehicle.violation.data.receiver.service;
+
+public class VehicleFilterService {
+	
+	
+	
+	public String getVehicleExists(String vehicleId) {
+		
+		
+		
+	}
+	
+	
+	
+	
+
+}

@@ -1,0 +1,10 @@
+
+insert into ON_DUTY_PERSONNEL (id,name,deviceType,deviceNumber,location) VALUES (1,'PERSON1','MOBILE','9999999999','BTM');
+insert into ON_DUTY_PERSONNEL (id,name,deviceType,deviceNumber,location) VALUES (2,'PERSON1','MOBILE','9999999999','BTM');
+insert into ON_DUTY_PERSONNEL (id,name,deviceType,deviceNumber,location) VALUES (3,'PERSON1','MOBILE','9999999999','BTM');
+insert into ON_DUTY_PERSONNEL (id,name,deviceType,deviceNumber,location) VALUES (4,'PERSON1','MOBILE','9999999999','BTM');
+insert into ON_DUTY_PERSONNEL (id,name,deviceType,deviceNumber,location) VALUES (5,'PERSON1','MOBILE','9999999999','BTM');
+insert into ON_DUTY_PERSONNEL (id,name,deviceType,deviceNumber,location) VALUES (6,'PERSON1','MOBILE','9999999999','BTM');
+insert into ON_DUTY_PERSONNEL (id,name,deviceType,deviceNumber,location) VALUES (7,'PERSON1','MOBILE','9999999999','BTM');
+
+insert into VEHICLE_VIOLATION (vehicleNumber,violationData,violationDate,penalty,location) VALUES ('KA01AB0001','SIGNAL JUMP','12-12-2020:10:25',1000,'BTM');

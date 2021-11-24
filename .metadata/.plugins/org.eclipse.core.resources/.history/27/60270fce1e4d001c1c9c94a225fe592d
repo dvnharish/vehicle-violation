@@ -1,0 +1,6 @@
+spring.application.name=data-receiver
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+server.port=8000
+feign.name=commServer
+commServer.ribbon.listOfServers= localhost:7000
+ribbon.eureka.enabled=false

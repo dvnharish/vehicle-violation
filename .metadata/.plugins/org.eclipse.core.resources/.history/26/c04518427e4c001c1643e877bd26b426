@@ -1,0 +1,28 @@
+package com.vehicle.violation.traffic.governance.service;
+
+import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.vehicle.violation.traffic.governance.service.model.repository.OnDutyPersonnelRepository;
+import com.vehicle.violation.traffic.governance.service.model.repository.VehicleViolationReporsitory;
+
+@SpringBootApplication
+//@EnableEurekaClient
+public class TrafficGovernanceApplication {
+
+	private static final Logger log = org.slf4j.LoggerFactory.getLogger(TrafficGovernanceApplication.class);
+
+	@Autowired
+	private OnDutyPersonnelRepository dutyPersonnelRepository;
+
+	@Autowired
+	private VehicleViolationReporsitory vehicleViolationReporsitory;
+
+	public static void main(String[] args) {
+		SpringApplication.run(TrafficGovernanceApplication.class, args);
+	}
+
+
+}

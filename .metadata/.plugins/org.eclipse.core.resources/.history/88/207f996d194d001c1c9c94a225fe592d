@@ -1,0 +1,18 @@
+package com.vehicle.violation.data.receiver.service;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.vehicle.violation.data.receiver.model.VehicleViolationMessage;
+
+
+
+@FeignClient(value = "commServer")
+public interface CommServiceProxy {
+
+	@PostMapping
+	public void alertTheBeatAtLocationAboutVehiclePendingViolation(@RequestBody VehicleViolationMessage vehicleViolationMessage) 
+}

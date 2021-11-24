@@ -1,0 +1,14 @@
+package com.vehicle.violation.data.receiver.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Feed{
+    public String cameraId;
+    public String cameraLocation;
+    public CameraData cameraData;
+}

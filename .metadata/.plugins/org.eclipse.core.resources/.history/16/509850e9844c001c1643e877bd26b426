@@ -1,0 +1,7 @@
+package com.vehicle.violation.traffic.governance.service.model;
+
+public enum DeviceType {
+	
+	MOBILE,TRANSCEIVER,MIC 
+
+}

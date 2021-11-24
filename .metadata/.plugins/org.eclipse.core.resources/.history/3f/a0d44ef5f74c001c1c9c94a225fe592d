@@ -1,0 +1,12 @@
+package com.vehicle.violation.data.receiver;
+
+public class VehicleData{
+	public String vehicleNumber;
+	public String ownerName;
+	public String manufacturingData;
+	public String color;
+	public String make;
+	public String model;
+
+	
+}

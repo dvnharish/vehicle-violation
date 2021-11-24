@@ -1,0 +1,29 @@
+package com.vehicle.violation.traffic.governance.service.rest;
+
+import java.util.List;
+
+import javax.ws.rs.PathParam;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.vehicle.violation.traffic.governance.service.model.OnDutyPersonnel;
+import com.vehicle.violation.traffic.governance.service.model.repository.OnDutyPersonnelRepository;
+
+@RestController
+@RequestMapping("/onduty")
+public class OnDutyPersonnelRest {
+
+	@Autowired
+	private OnDutyPersonnelRepository dutyPersonnelRepository;
+
+	@GetMapping(path = "/personnel/{location}")
+	public List<OnDutyPersonnel> getOnDutyPersonalAtLocation(@PathParam(value = "location") String location) {
+
+		System.out.println(dutyPersonnelRepository.findAllByLocation(location));
+		return dutyPersonnelRepository.findAllByLocation(location);
+
+	}
+}

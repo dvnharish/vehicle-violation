@@ -1,0 +1,5 @@
+package com.vehicle.violation.communication.service.proxy;
+
+public class BeatService {
+
+}

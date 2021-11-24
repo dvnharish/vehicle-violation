@@ -1,0 +1,42 @@
+package com.vehicle.violation.data.receiver;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.vehicle.violation.data.receiver.model.VehicleData;
+import com.vehicle.violation.data.receiver.model.VehicleViolation;
+import com.vehicle.violation.data.receiver.service.VehicleFilterService;
+
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+@SpringBootApplication
+@EnableEurekaClient
+@RestController
+@RequestMapping("/send")
+public class DataReceiverApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DataReceiverApplication.class, args);
+	}
+	@Autowired
+	private VehicleFilterService vehicleFilterService;
+	
+	
+	@PostMapping
+	public List<VehicleViolation> recieveData(@RequestBody VehicleData vehicleData) {
+		System.out.println("in post");
+
+		
+		return vehicleFilterService.getVehicleExists(vehicleData.getVehicleNumber());
+	}
+	
+
+
+}

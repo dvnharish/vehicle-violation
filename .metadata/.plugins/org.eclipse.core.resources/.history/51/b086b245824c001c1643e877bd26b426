@@ -1,0 +1,22 @@
+create table ON_DUTY_PERSONNEL
+(
+   id integer not null,
+   name varchar(255) not null,
+   deviceType varchar(255) not null,
+   location varchar(255) not null,
+   primary key(id)
+);
+
+insert into ON_DUTY_PERSONNEL VALUES (1,"PERSON1","MOBILE","BTM");
+
+create table VEHICLE_VIOLATION
+(
+   vehicleNumber varchar(255) not null,
+   violationData varchar(255) not null,
+   violationDate varchar(255) not null,
+   penalty integer not null,
+   location varchar(255) not null,
+   primary key(id)
+);
+
+insert into ON_DUTY_PERSONNEL VALUES ("KA01AB0001","SIGNAL JUMP","12-12-2020:10:25",1000,"BTM");

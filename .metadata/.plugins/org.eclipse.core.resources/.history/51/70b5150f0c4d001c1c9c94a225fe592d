@@ -1,0 +1,8 @@
+package com.vehicle.violation.data.receiver.model;
+
+public class Feed {
+
+	VehicleData vehicleData;
+	VehicleViolation vehicleViolation;
+	
+}

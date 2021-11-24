@@ -1,0 +1,63 @@
+package com.vehicle.violation.traffic.governance.service.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class OnDutyPersonnel {
+
+	@Id
+	private Integer id;
+
+	private String name;
+	private DeviceType deviceType;
+	private String deviceNumber;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public DeviceType getDeviceType() {
+		return deviceType;
+	}
+
+	public void setDeviceType(DeviceType deviceType) {
+		this.deviceType = deviceType;
+	}
+
+	public String getDeviceNumber() {
+		return deviceNumber;
+	}
+
+	public void setDeviceNumber(String deviceNumber) {
+		this.deviceNumber = deviceNumber;
+	}
+
+	
+	public OnDutyPersonnel(Integer id, String name, DeviceType deviceType, String deviceNumber) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.deviceType = deviceType;
+		this.deviceNumber = deviceNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "OnDutyPersonnel [id=" + id + ", name=" + name + ", deviceType=" + deviceType + ", deviceNumber="
+				+ deviceNumber + "]";
+	}
+
+}

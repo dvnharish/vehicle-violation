@@ -1,0 +1,6 @@
+package com.vehicle.violation.traffic.governance.service;
+
+@Configuration
+public class SwaggerConfig {
+
+}

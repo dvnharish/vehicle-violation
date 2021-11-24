@@ -1,0 +1,8 @@
+1637738815549	Extract Class...
+1637738839799	Rename compilation unit 'VehicleDataData.java'
+1637747435011	Rename type 'Vehicle'
+1637747458086	Delete element
+1637747956319	Rename method 'getVehicleExists'
+1637747968513	Rename method 'getVehiclesFromGivernanceAndSendLocationAndVehicleDataToCommunicationServer'
+1637749133744	Rename local variable 'vehicleData'
+1637750079045	Copy compilation units

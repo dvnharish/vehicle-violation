@@ -1,0 +1,21 @@
+package com.vehicle.violation.data.receiver.service;
+
+public class VehicleFilterService {
+	
+	
+	
+	public String getVehicleExists(String vehicleId) {
+		RestTemplate restTemplate = new RestTemplate();
+		HttpEntity<Foo> request = new HttpEntity<>(new Foo("bar"));
+		ResponseEntity<Foo> response = restTemplate
+		  .exchange(fooResourceUrl, HttpMethod.POST, request, Foo.class);
+		
+		
+		return "";
+	}
+	
+	
+	
+	
+
+}

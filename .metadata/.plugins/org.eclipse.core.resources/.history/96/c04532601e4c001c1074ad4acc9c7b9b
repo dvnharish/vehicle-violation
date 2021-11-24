@@ -1,0 +1,59 @@
+package com.vehicle.violation.traffic.governance.service.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class VehicleViolation {
+
+	@Id
+	public String vehicleNumber;
+    public String violationData;
+    public String violationDate;
+    public String penalty;
+    public String location;
+	public String getVehicleNumber() {
+		return vehicleNumber;
+	}
+	public void setVehicleNumber(String vehicleNumber) {
+		this.vehicleNumber = vehicleNumber;
+	}
+	public String getViolationData() {
+		return violationData;
+	}
+	public void setViolationData(String violationData) {
+		this.violationData = violationData;
+	}
+	public String getViolationDate() {
+		return violationDate;
+	}
+	public void setViolationDate(String violationDate) {
+		this.violationDate = violationDate;
+	}
+	public String getPenalty() {
+		return penalty;
+	}
+	public void setPenalty(String penalty) {
+		this.penalty = penalty;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	@Override
+	public String toString() {
+		return "VehicleViolation [vehicleNumber=" + vehicleNumber + ", violationData=" + violationData
+				+ ", violationDate=" + violationDate + ", penalty=" + penalty + ", location=" + location + "]";
+	}
+	public VehicleViolation(String vehicleNumber, String violationData, String violationDate, String penalty,
+			String location) {
+		this.vehicleNumber = vehicleNumber;
+		this.violationData = violationData;
+		this.violationDate = violationDate;
+		this.penalty = penalty;
+		this.location = location;
+	}
+	
+}

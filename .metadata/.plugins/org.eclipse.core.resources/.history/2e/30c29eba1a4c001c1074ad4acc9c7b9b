@@ -1,0 +1,14 @@
+package com.vehicle.violation.traffic.governance.service;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class TrafficGovernanceApplication implements CommandLineRunner{
+
+	public static void main(String[] args) {
+		SpringApplication.run(TrafficGovernanceApplication.class, args);
+	}
+
+}

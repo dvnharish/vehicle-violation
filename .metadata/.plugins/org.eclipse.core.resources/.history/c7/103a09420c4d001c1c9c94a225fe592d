@@ -1,0 +1,28 @@
+package com.vehicle.violation.data.receiver.service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.vehicle.violation.data.receiver.model.VehicleViolation;
+
+@Service
+public class VehicleFilterService {
+
+	public List<VehicleViolation> getVehicleExists(String vehicleId) {
+		RestTemplate restTemplate = new RestTemplate();
+		String BASE_URL = "http://localhost:9000/vehicle/violations?vehicleNumber=KA51AB1234";
+
+		ResponseEntity<List<VehicleViolation>> responseEntity = restTemplate.exchange(BASE_URL, HttpMethod.GET, null,
+				new ParameterizedTypeReference<List<VehicleViolation>>() {
+				});
+		List<VehicleViolation> users = responseEntity.getBody();
+		return users.stream().collect(Collectors.toList());
+	}
+
+}
